@@ -10,13 +10,15 @@ function Page() {
       <div>Choose your Destination</div>
       <div className="flex flex-col gap-4">
         {destination.map((d, index) => {
-          <div
-            key={index}
-            className="text-black font-bold text-2xl items-center justify-center rounded-2xl w-50 h-25 bg-amber-300"
-            onClick={router.push(`/destination/${d}`)}
-          >
-            {d}
-          </div>;
+          return (
+            <div
+              key={index}
+              className="text-black font-bold text-2xl items-center justify-center rounded-2xl w-50 h-25 bg-amber-300"
+              onClick={() => router.push(`/destination/${d}`)}
+            >
+              {d}
+            </div>
+          );
         })}
       </div>
     </div>
