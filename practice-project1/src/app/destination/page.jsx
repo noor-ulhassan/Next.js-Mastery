@@ -13,7 +13,7 @@ function Page() {
           return (
             <div
               key={index}
-              className="text-black flex font-bold text-2xl items-center justify-center rounded-2xl w-50 h-25 bg-amber-300"
+              className="text-black flex  cursor-pointer font-bold text-2xl items-center justify-center rounded-2xl w-50 h-25 bg-amber-300"
               onClick={() => router.push(`/destination/${d}`)}
             >
               {d}
