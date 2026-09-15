@@ -1,44 +1,34 @@
 import mongoose from "mongoose";
 
 interface Iuser{
+    _id?:mongoose.Types.ObjectId,
     name:string,
-    email:string,
-    password:string,
-    image?:string,
+    image:string
+    email:string
+    password?:string
     createdAt?:Date,
-    updatedAt?:Date,
+    updatedAt?:Date
 }
 
 
-const userSchema = new mongoose.Schema<Iuser>({
-    name:{
-        type:String,
-        required:true,
-    },
-    email:{
-        type:String,
-        required:true,
-    },
-    password:{
-        type:String,
-        required:true,
-    },
-    image:{
-        type:String,
-    },
-    createdAt:{
-        type:Date,
-        default:Date.now,
-    },
-    updatedAt:{
-        type:Date,
-        default:Date.now,
-    },
+const userSchema=new mongoose.Schema<Iuser>({
+name:{
+    type:String,
+    required:true
 },
-    {timestamps:true}
-)
+email:{
+    type:String,
+    required:true,
+    unique:true
+},
+password:{
+    type:String,
+    required:false
+},
+image:{
+    type:String
+}
+},{timestamps:true})
 
-
-const User = mongoose.models.User || mongoose.model("User", userSchema)
-
-export default User;
+const User=mongoose.models.User ||  mongoose.model('User',userSchema) 
+export default User
