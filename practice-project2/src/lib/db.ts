@@ -1,6 +1,7 @@
+
 import { connect } from "mongoose";
 
-const mongoUrl = process.env.MONGO_URI;
+const mongoUrl = process.env.MONGO_URI
 if (!mongoUrl) {
     throw new Error("Provide DB URL ")
 }
@@ -15,6 +16,7 @@ if (!cached) {
 
 const connectDb = async () => {
     if (cached.conn) {
+        console.log("Cached Db connected")
         return cached.conn
     }
     if (!cached.promise) {
@@ -23,6 +25,7 @@ const connectDb = async () => {
 
     try {
         cached.conn = await cached.promise
+        console.log("Db connected")
     } catch (error) {
         throw error
     }
